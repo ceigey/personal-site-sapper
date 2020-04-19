@@ -4,6 +4,7 @@
 
 <style>
 	nav {
+		z-index: 1px;
 		border-bottom: 1px solid rgba(255,62,0,0.1);
 		font-weight: 300;
 		padding: 0 1em;
@@ -46,9 +47,41 @@
 		padding: 1em 0.5em;
 		display: block;
 	}
+
+	.title {
+		display: inline-block
+	}
+	.title-rectangle {
+    padding: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    /* align-items: center; */
+    /* height: 240px; */
+    /* height: 180px;
+    width: 240px; */
+    background-color: #2255aa;
+    box-sizing: border-box;
+    /* text-align: end; */
+    /* vertical-align: bottom; */
+	}
+	.my-name {
+    justify-self: end;
+    display: block;
+    color: white;
+    font-size: 16px;
+    text-align: end;
+    font-weight: bold;
+  }
 </style>
 
 <nav>
+	<div class="title">
+		<div class="title-rectangle">
+			<div class="my-name">
+				Christian Meredith
+			</div>
+		</div>
+	</div>
 	<ul>
 		<li><a aria-current='{segment === undefined ? "page" : undefined}' href='.'>home</a></li>
 		<li><a aria-current='{segment === "about" ? "page" : undefined}' href='about'>about</a></li>

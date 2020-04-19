@@ -1,10 +1,26 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+	import Header from '../components/Header.svelte';
+	// import Nav from '../components/Nav.svelte';
+	import Nav from '../components/NewNav.svelte';
+	// import MediaQuery from "svelte-media-query";
+	import { media } from '../stores';
 
 	export let segment;
+
+
 </script>
 
 <style>
+	.app-container {
+		display: flex;
+		flex-direction: row-reverse;
+		height: 100vh;
+		width: 100vw;
+		align-items: stretch;
+	}
+	.content {
+		width: 100%;
+	}
 	main {
 		position: relative;
 		max-width: 56em;
@@ -15,8 +31,19 @@
 	}
 </style>
 
-<Nav {segment}/>
+<div class="app-container">
+	<!-- <MediaQuery query="screen and (min-width: 769px)" let:isDesktop> -->
+		{#if $media.desktop}
+			<Header />
+		{/if}
+	<!-- </MediaQuery> -->
+	<div class="content">
+		<Nav {segment}/>
+		<main>
+			<slot></slot>
+		</main>
+	</div>
+</div>
 
-<main>
-	<slot></slot>
-</main>
+<!-- <MediaQuery query="screen and (min-width: 769px)" let:isMobile>
+</MediaQuery> -->
